@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: jjtech-pod # any name of your choice
+  namespace: jjtech-project  #existing name space
+  labels:
+    app: myapp
+    run: nginx  #to create your container
+spec:
+  containers:
+  - name: tower-container
+    image: nginx
+    resources:
+      limits:
+        cpu: 200m
+        memory: 500Mi
+      requests:
+        cpu: 100m
+        memory: 200Mi
+    ports:
+    - containerPort:  80
+      name:  http
